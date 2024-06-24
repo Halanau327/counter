@@ -1,9 +1,9 @@
-type CounterValuePropsType = {
+type CounterFieldPropsType = {
     value: number
     styles?: string
 }
 
-export const CounterValue = ({value, styles}:CounterValuePropsType) => {
+export const CounterField = ({value, styles}:CounterFieldPropsType) => {
     return (
         <div className="counterContainer">
             <span className={styles}>{value}</span>
