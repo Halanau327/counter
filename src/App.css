@@ -46,6 +46,11 @@
     margin-bottom: 10px;
 }
 
+.maxMinContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .inputContainer {
     display: flex;
 }

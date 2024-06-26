@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {CounterField} from "./counterComponents/CounterValue";
+import {CounterField} from "./counterComponents/CounterField";
 import {Button} from "./counterComponents/Button";
 
 
@@ -8,9 +8,11 @@ type CounterPropsType = {
     start: number
     counterValue: number
     onIncrement: () => void
+    onReset: () => void
+    disableBtn: boolean
 }
 
-export const Counter = ({max, start, counterValue, onIncrement}: CounterPropsType) => {
+export const Counter = ({max, start, counterValue, onIncrement, onReset, disableBtn }: CounterPropsType) => {
 
     // // const maxValue = 5
     // // const minValue = 0;
@@ -30,10 +32,10 @@ export const Counter = ({max, start, counterValue, onIncrement}: CounterPropsTyp
 
     return (
         <div className="container rightContainer">
-            <CounterField styles={isIncreaseOn ? "red" : "common"} value={counterValue}/>
+            <CounterField  value={counterValue}/>
             <div className="buttonContainer">
-                <Button title="inc" onClick={onIncrementClick} styles="myButton" disabled={isIncreaseOn}/>
-                <Button title="reset" onClick={onResetClick} styles="myButton" disabled={isResetOn}/>
+                <Button title="inc" onClick={onIncrement} styles="myButton" disabled={counterValue >= max ? true : disableBtn} />
+                <Button title="reset" onClick={onReset} styles="myButton" disabled={counterValue === start ? true : disableBtn} />
             </div>
         </div>
     );

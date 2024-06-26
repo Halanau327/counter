@@ -1,12 +1,14 @@
 import * as React from 'react';
 
 import {Button} from "./counterComponents/Button";
+import {Input} from "./counterComponents/Input";
 
 type SettingsPropsType = {
-
+    onSetMax: (n:number) => void
+    onSetStart: (n:number) => void
 };
 
-export const Settings = ({}: SettingsPropsType) => {
+export const Settings = ({onSetMax, onSetStart}: SettingsPropsType) => {
 
     const onClickHandler = () => {
 
@@ -17,10 +19,14 @@ export const Settings = ({}: SettingsPropsType) => {
             <div>
                 <div className="valuesContainer">
                     <div>
-                        <label></label>
-                        <input type="number"/>
-                    </div>
+                        <div className="maxMinContainer">
+                          <Input onChangeInput={onSetMax}/>
+                        </div>
+                        <div className="maxMinContainer">
+                            <Input onChangeInput={onSetStart}/>
 
+                        </div>
+                    </div>
                 </div>
 
                 <div className="buttonContainer">

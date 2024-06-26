@@ -13,18 +13,33 @@ const App = () => {
 
 
     const incrementCounterHandler = () => {
-        setCounterValue(v => v++)
+        if(counterValue < max) {
+            setCounterValue(v => v+1)
+        } else setDisableBtn(true)
     }
+
+    const resetCounterHandler = () => {
+        setCounterValue(start)
+    }
+
+    const disabledButtonCounterHandler = () => {
+            setDisableBtn(!disableBtn)
+    }
+
+
 
     return (
         <div className="App">
-            <Settings/>
+            <Settings onSetMax={setMax}
+                      onSetStart={setStart}
+            />
+
             <Counter max={max}
                      start={start}
                      counterValue={counterValue}
                      onIncrement={incrementCounterHandler}
-
-
+                     onReset={resetCounterHandler}
+                     disableBtn={disableBtn}
 
             />
         </div>
