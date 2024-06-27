@@ -4,11 +4,13 @@ import {Button} from "./counterComponents/Button";
 import {Input} from "./counterComponents/Input";
 
 type SettingsPropsType = {
-    onSetMax: (n:number) => void
-    onSetStart: (n:number) => void
+    onSetMax: (n: number) => void
+    onSetStart: (n: number) => void
+    start: number
+    max: number
 };
 
-export const Settings = ({onSetMax, onSetStart}: SettingsPropsType) => {
+export const Settings = ({onSetMax, onSetStart, start, max}: SettingsPropsType) => {
 
     const onClickHandler = () => {
 
@@ -20,10 +22,20 @@ export const Settings = ({onSetMax, onSetStart}: SettingsPropsType) => {
                 <div className="valuesContainer">
                     <div>
                         <div className="maxMinContainer">
-                          <Input onChangeInput={onSetMax}/>
+                            <Input name="max value"
+                                   onChangeInput={onSetMax}
+                                   type="number"
+                                   value={max}
+
+                            />
                         </div>
                         <div className="maxMinContainer">
-                            <Input onChangeInput={onSetStart}/>
+                            <Input name="start value"
+                                   onChangeInput={onSetStart}
+                                   type="number"
+                                   value={start}
+
+                            />
 
                         </div>
                     </div>

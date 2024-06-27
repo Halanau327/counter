@@ -32,6 +32,8 @@ const App = () => {
         <div className="App">
             <Settings onSetMax={setMax}
                       onSetStart={setStart}
+                      start={start}
+                      max={max}
             />
 
             <Counter max={max}

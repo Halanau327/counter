@@ -22,6 +22,7 @@ export const Input = ({value, onChangeInput, name}:InputPropsType) => {
             <input type="number"
                    id={name}
                    onChange={onChangeHandler}
+                   value={value}
 
 
 
