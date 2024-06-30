@@ -26,6 +26,10 @@ const App = () => {
             setDisableBtn(!disableBtn)
     }
 
+    const setCounterStartHandler = () => {
+        setCounterValue(start)
+    }
+
 
 
     return (
@@ -34,6 +38,7 @@ const App = () => {
                       onSetStart={setStart}
                       start={start}
                       max={max}
+                      set={setCounterStartHandler}
             />
 
             <Counter max={max}
@@ -42,7 +47,6 @@ const App = () => {
                      onIncrement={incrementCounterHandler}
                      onReset={resetCounterHandler}
                      disableBtn={disableBtn}
-
             />
         </div>
     );

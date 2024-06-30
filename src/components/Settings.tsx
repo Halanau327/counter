@@ -8,9 +8,10 @@ type SettingsPropsType = {
     onSetStart: (n: number) => void
     start: number
     max: number
+    set:() => void
 };
 
-export const Settings = ({onSetMax, onSetStart, start, max}: SettingsPropsType) => {
+export const Settings = ({onSetMax, onSetStart, start, max,set}: SettingsPropsType) => {
 
     const onClickHandler = () => {
 
@@ -26,7 +27,6 @@ export const Settings = ({onSetMax, onSetStart, start, max}: SettingsPropsType) 
                                    onChangeInput={onSetMax}
                                    type="number"
                                    value={max}
-
                             />
                         </div>
                         <div className="maxMinContainer">
@@ -34,7 +34,6 @@ export const Settings = ({onSetMax, onSetStart, start, max}: SettingsPropsType) 
                                    onChangeInput={onSetStart}
                                    type="number"
                                    value={start}
-
                             />
 
                         </div>
@@ -42,7 +41,7 @@ export const Settings = ({onSetMax, onSetStart, start, max}: SettingsPropsType) 
                 </div>
 
                 <div className="buttonContainer">
-                    <Button title="set" onClick={onClickHandler} styles="myButton"/>
+                    <Button title="set" onClick={set} styles="myButton"/>
                 </div>
             </div>
         </div>
