@@ -19,11 +19,9 @@ const App = () => {
     }
 
     const resetCounterHandler = () => {
-        setCounterValue(start)
-    }
-
-    const disabledButtonCounterHandler = () => {
-            setDisableBtn(!disableBtn)
+        if(start >= 0) {
+            setCounterValue(start)
+        }
     }
 
     const setCounterStartHandler = () => {
@@ -47,6 +45,7 @@ const App = () => {
                      onIncrement={incrementCounterHandler}
                      onReset={resetCounterHandler}
                      disableBtn={disableBtn}
+
             />
         </div>
     );
