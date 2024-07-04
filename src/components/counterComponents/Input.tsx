@@ -8,28 +8,19 @@ type InputPropsType = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInpu
     isValid: boolean
 };
 
-
-export const Input = ({value, onChangeInput, name, isValid}:InputPropsType) => {
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+export const Input = ({value, onChangeInput, name, isValid}: InputPropsType) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChangeInput(Number(e.currentTarget.value))
     }
 
-
-
-
     return (
         <label htmlFor={name}>
-        <span>{`${name}:`}</span>
+            <span>{`${name}:`}</span>
             <input type="number"
                    id={name}
                    onChange={onChangeHandler}
                    value={value}
                    className={`${isValid ? s.error : ""}`}
-
-
-
-
-
             />
         </label>
     );

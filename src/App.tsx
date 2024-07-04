@@ -4,17 +4,15 @@ import "./App.css"
 import {Settings} from "./components/Settings";
 
 
-
 const App = () => {
     const [counterValue, setCounterValue] = useState<number>(0);
     const [max, setMax] = useState<number>(5);
     const [start, setStart] = useState<number>(0)
     const [disableBtn, setDisableBtn] = useState(false)
 
-
     const incrementCounterHandler = () => {
         if(counterValue < max) {
-            setCounterValue(v => v+1)
+            setCounterValue(counterValue + 1)
         } else setDisableBtn(true)
     }
 
@@ -26,9 +24,12 @@ const App = () => {
 
     const setCounterStartHandler = () => {
         setCounterValue(start)
+
     }
 
-
+    const disableCounterBtnHandler = () => {
+        setDisableBtn(true)
+    }
 
     return (
         <div className="App">
@@ -37,6 +38,8 @@ const App = () => {
                       start={start}
                       max={max}
                       set={setCounterStartHandler}
+                      disableBtn={disableBtn}
+                      onDisable={disableCounterBtnHandler}
             />
 
             <Counter max={max}
@@ -45,7 +48,6 @@ const App = () => {
                      onIncrement={incrementCounterHandler}
                      onReset={resetCounterHandler}
                      disableBtn={disableBtn}
-
             />
         </div>
     );

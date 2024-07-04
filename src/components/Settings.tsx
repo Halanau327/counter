@@ -8,19 +8,15 @@ type SettingsPropsType = {
     onSetStart: (n: number) => void
     start: number
     max: number
-    set:() => void
-
+    set: () => void
+    disableBtn: boolean
+    onDisable: () => void
 };
 
-export const Settings = ({onSetMax, onSetStart, start, max,set}: SettingsPropsType) => {
+export const Settings = ({onSetMax, onSetStart, start, max,set, disableBtn, wr}: SettingsPropsType) => {
 
     const isValidMax = max <= 0 || max <= start
     const isValidStart = start < 0 || start >= max
-
-    const buttonSetHandler = () => {
-
-
-    }
 
     return (
         <div className="container">
@@ -49,7 +45,7 @@ export const Settings = ({onSetMax, onSetStart, start, max,set}: SettingsPropsTy
                 </div>
 
                 <div className="buttonContainer">
-                    <Button disabled={isValidStart} title="set" onClick={set} styles="myButton"/>
+                    <Button disabled={!disableBtn || isValidStart} title="set" onClick={set} styles="myButton"/>
                 </div>
             </div>
         </div>

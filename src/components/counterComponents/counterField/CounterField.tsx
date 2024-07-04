@@ -2,13 +2,12 @@ import s from "./CounterField.module.css"
 
 type CounterFieldPropsType = {
     value: any
-    styles?: string
     isValidMax: boolean
     isValidStart: boolean
     max: number
 }
 
-export const CounterField = ({value, styles, isValidMax, isValidStart, max}:CounterFieldPropsType) => {
+export const CounterField = ({value, isValidMax, isValidStart, max}:CounterFieldPropsType) => {
     return (
         <div className="counterContainer">
             {

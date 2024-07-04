@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {CounterField} from "./counterComponents/counterField/CounterField";
 import {Button} from "./counterComponents/button/Button";
-
 
 type CounterPropsType = {
     max: number
@@ -12,7 +11,7 @@ type CounterPropsType = {
     disableBtn: boolean
 }
 
-export const Counter = ({max, start, counterValue, onIncrement, onReset, disableBtn }: CounterPropsType) => {
+export const Counter = ({max, start, counterValue, onIncrement, onReset }: CounterPropsType) => {
 
     const isValidMax = max <= 0 || max <= start
     const isValidStart = start < 0 || start >= max
