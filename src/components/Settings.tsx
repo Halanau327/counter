@@ -39,6 +39,13 @@ export const Settings = ({onSetMax, onSetStart, start, max,set, disableBtn, wr}:
                                    value={start}
                                    isValid={isValidStart}
                             />
+                            <Input name="start value"
+                                   onChangeInput={onSetStart}
+                                   type="number"
+                                   value={start}
+                                   isValid={isValidStart}
+                            />
+
 
                         </div>
                     </div>
