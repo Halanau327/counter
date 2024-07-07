@@ -20,7 +20,7 @@ export const Counter = ({max, start, counterValue, onIncrement, onReset }: Count
         <div className="container rightContainer">
             <CounterField  value={counterValue} isValidMax={isValidMax} isValidStart={isValidStart} max={max}/>
             <div className="buttonContainer">
-                <Button title="inc" onClick={onIncrement} styles="myButton" disabled={isValidMax || isValidStart || counterValue === max} />
+                <Button title="inc" onClick={onIncrement} styles="myButton" disabled={isValidMax || isValidStart || counterValue === max } />
                 <Button title="reset" onClick={onReset} styles="myButton" disabled={isValidMax || isValidStart} />
             </div>
         </div>
