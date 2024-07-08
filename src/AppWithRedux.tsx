@@ -1,54 +1,52 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Counter} from "./components/Counter";
 import "./App.css"
 import {Settings} from "./components/Settings";
 import {AppRootStateType} from "./components/store";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    disableCounterAC,
+    incrementCounterAC,
+    resetCounterAC,
+    setCounterStartAC,
+    setMaxAC, setStartAC
+} from "./components/CounterReducer";
 
 
 const AppWithRedux = () => {
 
-    let superCounter = useSelector<AppRootStateType>(state => state)
+    const  counterValue = useSelector<AppRootStateType, number>(state => state.counterValue)
+    const  max = useSelector<AppRootStateType, number>(state => state.max)
+    const  start = useSelector<AppRootStateType, number>(state => state.start)
+    const  disableBtn = useSelector<AppRootStateType, boolean>(state => state.disableBtn)
 
-
-
-
-
-    const [counterValue, setCounterValue] = useState<number>(0);
-    const [max, setMax] = useState<number>(5);
-    const [start, setStart] = useState<number>(0)
-    const [disableBtn, setDisableBtn] = useState(false)
-
+    const dispatch = useDispatch();
 
     const incrementCounterHandler = () => {
-        if(counterValue < max) {
-            setCounterValue(counterValue + 1)
-        } else setDisableBtn(true)
+        dispatch(incrementCounterAC())
     }
 
     const resetCounterHandler = () => {
-        if(start >= 0) {
-            setCounterValue(start)
-        }
+        dispatch(resetCounterAC())
     }
 
     const setCounterStartHandler = () => {
-        setCounterValue(start)
+        dispatch(setCounterStartAC())
     }
 
     const disableCounterBtnHandler = () => {
-        setDisableBtn(true)
+        dispatch(disableCounterAC())
     }
 
     const submitSetHandler = () => {
-        setCounterValue(start)
-        setDisableBtn(false)
+        dispatch(setCounterStartAC())
+       dispatch(disableCounterAC())
     }
 
     return (
         <div className="App">
-            <Settings onSetMax={setMax}
-                      onSetStart={setStart}
+            <Settings onSetMax={(value) => dispatch(setMaxAC(value))}
+                      onSetStart={(value) => dispatch(setStartAC(value))}
                       start={start}
                       max={max}
                       set={setCounterStartHandler}

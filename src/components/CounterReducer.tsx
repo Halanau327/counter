@@ -102,6 +102,12 @@ export const setCounterStartAC = () => {
     } as const
 };
 
+export const disableCounterAC = () => {
+    return {
+        type: 'DISABLE-COUNTER-BTN'
+    } as const
+};
+
 export const setMaxAC = (max: number) => {
     return {
         type: 'SET-MAX',
