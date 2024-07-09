@@ -6,7 +6,7 @@ type InputPropsType = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInpu
     value: number
     onChangeInput: (value:number) => void
     isValid: boolean
-    onDisable?: () => void
+    onDisable: () => void
 };
 
 export const Input = ({value, onChangeInput, name, isValid, onDisable}: InputPropsType) => {

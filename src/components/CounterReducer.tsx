@@ -39,16 +39,19 @@ export const counterReducer = (state = initialState, action: counterReducerActio
                 ...state,
                 disableBtn: true
             }
-        case 'SET-SUBMIT':
-            return {
-                ...state,
-                counterValue: state.start,
-                disableBtn: false
-            }
+        default: {
+            return state
+        }
     }
 }
 
-type counterReducerActionsType = incrementCounterType | resetCounterType | setCounterStartType | setMaxType | setStartType | disableCounterBtnType | setSubmitType
+type counterReducerActionsType =
+    incrementCounterType
+    | resetCounterType
+    | setCounterStartType
+    | setMaxType
+    | setStartType
+    | disableCounterBtnType
 
 type incrementCounterType = {
     type: 'INCREMENT-COUNTER'
@@ -80,9 +83,6 @@ type disableCounterBtnType = {
     type: 'DISABLE-COUNTER-BTN'
 }
 
-type setSubmitType = {
-    type: 'SET-SUBMIT',
-}
 
 export const incrementCounterAC = () => {
     return {
@@ -125,10 +125,3 @@ export const setStartAC = (start: number) => {
         }
     } as const
 }
-
-export const setSubmitAC = () => {
-    return {
-        type: 'SET-SUBMIT',
-    } as const
-}
-

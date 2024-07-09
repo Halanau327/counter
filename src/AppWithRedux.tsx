@@ -15,10 +15,10 @@ import {
 
 const AppWithRedux = () => {
 
-    const  counterValue = useSelector<AppRootStateType, number>(state => state.counterValue)
-    const  max = useSelector<AppRootStateType, number>(state => state.max)
-    const  start = useSelector<AppRootStateType, number>(state => state.start)
-    const  disableBtn = useSelector<AppRootStateType, boolean>(state => state.disableBtn)
+    const counterValue = useSelector<AppRootStateType, number>(state => state.counterValue)
+    const max = useSelector<AppRootStateType, number>(state => state.max)
+    const start = useSelector<AppRootStateType, number>(state => state.start)
+    const disableBtn = useSelector<AppRootStateType, boolean>(state => state.disableBtn)
 
     const dispatch = useDispatch();
 
